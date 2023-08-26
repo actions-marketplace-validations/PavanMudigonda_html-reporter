@@ -217,7 +217,10 @@ runs:
         fi;
         #-------------------------------------------------------------------
         if [[ ${ORDER} != 'ascending' ]]; then
-          gh release download artifact --repo https://github.com/PavanMudigonda/html-reporter
+          gh release download v0.1 --repo https://github.com/PavanMudigonda/html-reporter
+          unzip html-reporter-0.1.zip
+          mv html-reporter-0.1/*.py ./
+          rm -rf html-reporter-0.1
           INDEX_SCRIPT_FOLDER=$PWD
           INDEX_SCRIPT_PATH=${INDEX_SCRIPT_FOLDER}/index-html-generator.py
         elif [[ ${ORDER} == 'descending' ]]; then
